@@ -1,5 +1,12 @@
+<h1>Student Profile</h1>
+
 <div>
     <div>Name: {{student.name}}</div>
     <div>Age: {{student.age}}</div>
+    <br>
+    <a href="/students/{{ student._id }}/edit">Update Student Info</a>
+    <br>
+    <a href="/students/{{student._id}}/delete" method="DELETE">Delete Student</a>
+    <br>
     <a href="/students">Back to All Students</a>
 </div>

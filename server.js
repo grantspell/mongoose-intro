@@ -10,6 +10,9 @@ mongoose.connect('mongodb://localhost/students');
 
 app.set('view engine', 'hbs')
 
+/* CSS LINK */
+app.use(express.static(__dirname + '/public'))
+
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 

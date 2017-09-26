@@ -86,11 +86,21 @@ router.get('/:id/edit', (request, response) => {
 // DELETE route
 router.get('/:id/delete', (request, response) => {
 
+    //we use router.get because we want to use a link to delete the
+    //student since a link's default action is GET
+
+    //Grab the student ID from the parameters
+    //for the SINGLE student that we are deleting
     const studentId = request.params.id
 
-    StudentModel.findOneAndRemove(studentId)
+    //use the StudentModel to find the student document
+    //by ID that we want to delete and delete it
+    StudentModel.findByIdAndRemove(studentId)
         .then((student) => {
-            response.send('You deleted it!')
+
+            //THEN redirect back to the students index
+            //to show all students
+            response.redirect('/students')
         })
         .catch((error) => {
             console.log(error)
